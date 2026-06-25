@@ -1,0 +1,50 @@
+==============================================================================
+VALIDATION 1 -- Assignment spec compliance (default configuration)
+==============================================================================
+  [PASS] Citizens N in [50,200]             = 150
+  [PASS] Influencers M in [4,10]            = 6
+  [PASS] Experts K in [2,5]                 = 3
+  [PASS] Time steps T in [50,100]           = 80
+  [PASS] At least 4 scenarios defined       = 4
+
+==============================================================================
+VALIDATION 2 -- Model invariants (opinions, initial range, determinism)
+==============================================================================
+  [PASS] Initial opinions within [-1,1]
+  [PASS] Initial opinions span both signs
+  [PASS] All opinions stay within [-1,1]
+  [PASS] No NaN / Inf produced
+  [PASS] History shape == (T+1, N)
+  [PASS] Same seed -> identical run
+
+==============================================================================
+VALIDATION 3 -- Robustness across 10 random seeds per scenario
+==============================================================================
+  Scenario                mean(std) mean(|avg|)   expected regime hit
+  Scenario 1: Baseline        0.102       0.021            10/10  [PASS]
+      regime distribution: {'Consensus': 10}
+  Scenario 2: Strong Influencer      0.608       0.072             9/10  [PASS]
+      regime distribution: {'Polarization': 9, 'Fragmentation': 1}
+  Scenario 3: Strong Expert      0.068       0.025            10/10  [PASS]
+      regime distribution: {'Consensus': 10}
+  Scenario 4: Low Trust       0.298       0.027            10/10  [PASS]
+      regime distribution: {'Mixed / Echo chambers': 10}
+
+==============================================================================
+VALIDATION 4 -- Ordering checks (the qualitative story must hold)
+==============================================================================
+  [PASS] Strong-influencer spread > baseline
+  [PASS] Strong-influencer spread > strong-expert
+  [PASS] Low-trust spread > baseline
+  [PASS] Strong-expert keeps consensus (std<0.18)
+  [PASS] Baseline converges (std<0.18)
+
+==============================================================================
+VALIDATION 5 -- Agent-count flexibility (min & max of allowed ranges)
+==============================================================================
+  [PASS] N=50,M=4,K=2,T=50 -> shape (51, 50), bounded & finite
+  [PASS] N=200,M=10,K=5,T=50 -> shape (51, 200), bounded & finite
+
+==============================================================================
+OVERALL: ALL CHECKS PASSED
+==============================================================================

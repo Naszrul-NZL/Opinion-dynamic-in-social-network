@@ -1,0 +1,5 @@
+Scenario,Final mean opinion,Final std (spread),% pro-AI (>0.4),% anti-AI (<-0.4),% neutral,# clusters,Outcome
+Scenario 1: Baseline,-0.014,0.026,0%,0%,100%,1,Consensus
+Scenario 2: Strong Influencer,-0.021,0.564,23%,28%,49%,3,Polarization
+Scenario 3: Strong Expert,-0.009,0.034,0%,0%,100%,1,Consensus
+Scenario 4: Low Trust,-0.026,0.289,11%,5%,84%,2,Mixed / Echo chambers
