@@ -23,6 +23,26 @@ HOW TO RUN (GNU Octave >= 5)
   2. Batch experiments + figures:   >> run_scenarios
   3. Interactive GUI:               >> abm_gui
 
+PERFORMANCE
+-----------
+  opinion_dynamics_abm.m is fully VECTORISED (matrix operations, no per-agent
+  inner loop). A full N=150, T=80 run now completes in well under a second in
+  Octave - the earlier element-by-element loop version was the slow part.
+
+USING THE GUI (abm_gui.m)
+-------------------------
+  * Four SCENARIO BUTTONS at the top-left load each assignment scenario and
+    run it instantly with ONE CLICK:
+        S1 Baseline | S2 Strong Influencer | S3 Strong Expert | S4 Low Trust
+  * You can also drag any slider (alpha, beta, gamma, delta, eps, sigma,
+    trust multipliers, N, T) and press RUN SIMULATION for custom settings.
+  * The status box reports the detected outcome (mean, std, %pro, %anti,
+    clusters). Defaults are N=120, T=70 for a snappy response; raise them for
+    final figures.
+  * If the window does not appear, set a graphics toolkit first, e.g.:
+        >> graphics_toolkit qt      % or: graphics_toolkit fltk
+    then run >> abm_gui
+
 MODEL SUMMARY
 -------------
   Opinion O in [-1,+1]  (-1 strongly against AI, 0 neutral, +1 strongly support).

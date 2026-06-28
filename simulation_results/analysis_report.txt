@@ -1,0 +1,57 @@
+==========================================================================
+PART A  STABILITY ANALYSIS
+==========================================================================
+
+A1. Settling (first step where mean|dO|<1e-3, averaged over 10 seeds):
+    Scenario 1: Baseline          : did not fully settle (active dynamics)
+    Scenario 2: Strong Influencer : did not fully settle (active dynamics)
+    Scenario 3: Strong Expert     : did not fully settle (active dynamics)
+    Scenario 4: Low Trust         : did not fully settle (active dynamics)
+
+A2. Sensitivity to initial conditions (perturb 1 citizen by +0.05):
+    Reported: final-state divergence ||O_perturbed - O_base|| (L2 over N).
+    Scenario 1: Baseline          : divergence = 0.087 +/- 0.152
+    Scenario 2: Strong Influencer : divergence = 0.514 +/- 0.661
+    Scenario 3: Strong Expert     : divergence = 0.107 +/- 0.321
+    Scenario 4: Low Trust         : divergence = 2.284 +/- 0.783
+
+    Interpretation: small divergence = stable/robust; large = chaotic/amplifying.
+
+==========================================================================
+PART B  SENSITIVITY ANALYSIS (OAT)
+==========================================================================
+
+B1. Sensitivity index = max-min of final spread (std) over each sweep:
+    Expert pull       : 0.737
+    Influencer pull   : 0.566
+    Averaging         : 0.215
+    Confidence eps    : 0.183
+    Noise             : 0.128
+    Peer trust mult   : 0.015
+
+    Most influential parameter : Expert pull
+    Least influential parameter: Peer trust mult
+
+==========================================================================
+PART C  STATISTICAL EVALUATION  (Monte Carlo, R=40 seeds)
+==========================================================================
+
+C1. Descriptive stats with 95%% bootstrap CI (final spread = std of opinions):
+    Scenario                        mean std              95% CI  mean op.
+    Scenario 1: Baseline               0.063   [0.051, 0.077]     0.005
+    Scenario 2: Strong Influencer      0.644   [0.629, 0.659]    -0.000
+    Scenario 3: Strong Expert          0.059   [0.049, 0.070]    -0.001
+    Scenario 4: Low Trust              0.299   [0.291, 0.307]     0.003
+
+C2. One-way ANOVA across scenarios (final spread):
+    F = 1991.24,  permutation p-value = 0.0002
+    => scenarios differ significantly
+
+C3. Each scenario vs Baseline (final spread): permutation p & effect size:
+    Scenario 2: Strong Influencer : p=0.0002, Cohen's d=+12.68 (large)
+    Scenario 3: Strong Expert     : p=0.6313, Cohen's d=-0.11 (small)
+    Scenario 4: Low Trust         : p=0.0002, Cohen's d=+6.72 (large)
+
+==========================================================================
+ANALYSIS COMPLETE - figures saved to /data/abm/results
+==========================================================================
