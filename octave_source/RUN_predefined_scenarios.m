@@ -3,7 +3,7 @@
 % and prints a summary table.
 %
 % Usage (from the Octave prompt, inside this folder):
-%   >> run_scenarios
+%   >> RUN_predefined_scenarios
 %
 % STTHK2133 Assignment #3 - Modeling & Simulation
 % -------------------------------------------------------------------------

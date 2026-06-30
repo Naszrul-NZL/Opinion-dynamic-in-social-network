@@ -1,6 +1,6 @@
-function abm_gui()
-% ABM_GUI  Interactive GUI for the Opinion Dynamics ABM.
-%   >> abm_gui
+function RUN_for_GUI()
+% RUN_FOR_GUI  Interactive GUI for the Opinion Dynamics ABM.
+%   >> RUN_for_GUI
 %
 % FOUR SCENARIO BUTTONS (top-left) load the assignment scenarios instantly:
 %   S1 Baseline | S2 Strong Influencer | S3 Strong Expert | S4 Low Trust
